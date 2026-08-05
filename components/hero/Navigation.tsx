@@ -1,12 +1,11 @@
 import React from 'react';
+import { NavLogo } from '@/components/common/NavLogo';
 
 export const Navigation: React.FC = () => {
   return (
     <nav className="w-full max-w-[1920px] mx-auto flex items-center justify-between py-6 px-6 sm:px-12">
-      {/* Brand */}
-      <span className="font-sedgwick text-2xl text-white drop-shadow-md tracking-wide">
-        Avinash
-      </span>
+      {/* Brand Logo with GSAP Trim Path Animation */}
+      <NavLogo />
 
       {/* Right side: nav links + CTA */}
       <div className="flex items-center gap-6 sm:gap-8">
