@@ -1,0 +1,54 @@
+@import '../styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+  }
+}
+
+@layer utilities {
+  /* Custom font utilities to bridge CSS vars with Tailwind */
+  .font-sedgwick {
+    font-family: var(--font-sedgwick) !important;
+  }
+  .font-staatliches {
+    font-family: var(--font-staatliches) !important;
+  }
+
+  /* Text shadow utility for Staatliches hero headline */
+  .text-shadow-hero {
+    text-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.6),
+      0 2px 8px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Subtle blur utility for role switcher transition */
+  .blur-xs {
+    filter: blur(2px);
+  }
+
+  /* Clipping mask: elements behind this layer appear underground */
+  .clip-underground {
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* Custom z-index levels for parallax depth */
+  .z-25 {
+    z-index: 25;
+  }
+}

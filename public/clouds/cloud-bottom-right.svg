@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 185" fill="none">
+  <!-- Curved blue band — mirrored, from lower-right to upper-left -->
+  <path d="M495 178 C390 145 220 92 -15 6 L-15 44 C220 128 390 180 495 212 Z" fill="#B5DEF0"/>
+  <!-- Cloud puffs — mirrored arrangement -->
+  <circle cx="450" cy="158" r="32" fill="#FFF9EE"/>
+  <circle cx="390" cy="138" r="50" fill="#FFF9EE"/>
+  <circle cx="322" cy="122" r="60" fill="#FFFAEE"/>
+  <circle cx="252" cy="130" r="50" fill="#FFF9EE"/>
+  <circle cx="200" cy="144" r="38" fill="#FFFAEF"/>
+  <!-- Base -->
+  <ellipse cx="320" cy="176" rx="200" ry="22" fill="#FFF9EE"/>
+</svg>

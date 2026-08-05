@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 185" fill="none">
+  <!-- Curved blue band from lower-left to upper-right (same direction as top-left, larger) -->
+  <path d="M-15 178 C90 145 260 92 495 6 L495 44 C260 128 90 180 -15 212 Z" fill="#B5DEF0"/>
+  <!-- Cloud puffs — slightly fewer, larger scale -->
+  <circle cx="30"  cy="158" r="32" fill="#FFF9EE"/>
+  <circle cx="90"  cy="138" r="50" fill="#FFF9EE"/>
+  <circle cx="158" cy="122" r="60" fill="#FFFAEE"/>
+  <circle cx="228" cy="130" r="50" fill="#FFF9EE"/>
+  <circle cx="280" cy="144" r="38" fill="#FFFAEF"/>
+  <!-- Base -->
+  <ellipse cx="160" cy="176" rx="200" ry="22" fill="#FFF9EE"/>
+</svg>

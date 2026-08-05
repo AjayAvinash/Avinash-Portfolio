@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 215 95" fill="none">
+  <!-- Curved blue streak -->
+  <path d="M0 78 C44 60 112 32 218 4 L218 26 C112 54 44 82 0 100 Z" fill="#B5DEF0"/>
+  <!-- Single compact cloud puff -->
+  <circle cx="100" cy="58" r="38" fill="#FFF9EE"/>
+  <circle cx="148" cy="48" r="30" fill="#FFFAEF"/>
+  <circle cx="62"  cy="64" r="28" fill="#FFF9EE"/>
+  <circle cx="172" cy="60" r="20" fill="#FFFBF0"/>
+  <!-- Base -->
+  <ellipse cx="108" cy="80" rx="76" ry="16" fill="#FFFAEE"/>
+</svg>

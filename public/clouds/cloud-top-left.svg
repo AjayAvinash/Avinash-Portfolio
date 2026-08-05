@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 175" fill="none">
+  <!-- Curved blue band — from lower-left sweeping to upper-right -->
+  <path d="M-15 168 C80 138 240 88 535 4 L535 42 C240 124 80 174 -15 204 Z" fill="#B5DEF0"/>
+  <!-- Cloud puffs strung along the bottom of the band -->
+  <circle cx="28"  cy="150" r="28" fill="#FFF9EE"/>
+  <circle cx="82"  cy="132" r="44" fill="#FFF9EE"/>
+  <circle cx="148" cy="116" r="56" fill="#FFFAEE"/>
+  <circle cx="216" cy="124" r="48" fill="#FFF9EE"/>
+  <circle cx="270" cy="136" r="38" fill="#FFFAEF"/>
+  <circle cx="316" cy="148" r="28" fill="#FFFAEF"/>
+  <!-- Base band to unify puff bottoms -->
+  <ellipse cx="172" cy="168" rx="202" ry="20" fill="#FFF9EE"/>
+</svg>

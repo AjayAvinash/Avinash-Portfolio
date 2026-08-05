@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 185" fill="none">
+  <!-- Curved blue band from upper-right sweeping to lower-left -->
+  <path d="M455 0 C380 42 210 110 -15 175 L-15 205 C210 140 380 72 455 32 Z" fill="#B5DEF0"/>
+  <!-- Single large prominent cream puff at upper-right -->
+  <circle cx="312" cy="68"  r="68"  fill="#FFF9EE"/>
+  <circle cx="372" cy="82"  r="50"  fill="#FFFAEF"/>
+  <circle cx="256" cy="80"  r="52"  fill="#FFF9EE"/>
+  <circle cx="395" cy="106" r="34"  fill="#FFFBF0"/>
+  <circle cx="210" cy="96"  r="36"  fill="#FFFAEF"/>
+  <!-- Base -->
+  <ellipse cx="316" cy="124" rx="128" ry="32" fill="#FFFAEE"/>
+</svg>
