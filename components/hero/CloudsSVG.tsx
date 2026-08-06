@@ -5,7 +5,7 @@ export const CloudsSVG: React.FC<{ className?: string }> = ({ className = '' }) 
     <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}>
       {/* Cloud 1 - Top Left */}
       <svg
-        className="absolute top-12 left-[8%] w-48 sm:w-64 opacity-90 animate-pulse"
+        className="absolute top-12 left-[0%] w-48 sm:w-64 opacity-90 animate-pulse"
         style={{ animationDuration: '8s' }}
         viewBox="0 0 200 80"
         fill="none"
@@ -19,7 +19,7 @@ export const CloudsSVG: React.FC<{ className?: string }> = ({ className = '' }) 
 
       {/* Cloud 2 - Top Right */}
       <svg
-        className="absolute top-8 right-[12%] w-56 sm:w-72 opacity-80 animate-pulse"
+        className="absolute top-8 right-[0%] w-56 sm:w-72 opacity-80 animate-pulse"
         style={{ animationDuration: '11s' }}
         viewBox="0 0 240 90"
         fill="none"
@@ -33,7 +33,7 @@ export const CloudsSVG: React.FC<{ className?: string }> = ({ className = '' }) 
 
       {/* Cloud 3 - Center High */}
       <svg
-        className="absolute top-20 left-[45%] -translate-x-1/2 w-40 sm:w-56 opacity-60"
+        className="absolute top-20 left-[55%] -translate-x-1/2 w-40 sm:w-56 opacity-60"
         viewBox="0 0 180 70"
         fill="none"
       >

@@ -48,13 +48,6 @@ export const HeroSection: React.FC = () => {
         ease: 'none',
       });
 
-      // ── Cloud Drift (idle loop) ──────────────────────────────────────────
-      gsap.to('.cloud-1', { x: 28,  duration: 18, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-      gsap.to('.cloud-2', { x: -22, duration: 23, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-      gsap.to('.cloud-3', { x: 14,  duration: 14, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-      gsap.to('.cloud-4', { x: 18,  duration: 20, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-      gsap.to('.cloud-5', { x: -16, duration: 17, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-
       // ── Tree gentle breathing ────────────────────────────────────────────
       gsap.to('#foreground-tree', {
         scaleY: 1.013,
@@ -87,31 +80,43 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative w-full overflow-hidden"
-      style={{ minHeight: '170vh' }}
+      className="relative w-full overflow-hidden flex flex-col"
     >
-      {/* ── z-0: Sky gradient + clouds + buildings ─────────────────────── */}
-      <BackgroundLayer />
+      {/* ── Sky Container: Fixed 100vh ─────────────────────────────────── */}
+      <div className="relative w-full h-[100vh] shrink-0">
+        <BackgroundLayer />
 
-      {/* ── z-10: Nav ──────────────────────────────────────────────────── */}
-      <div className="relative z-10 w-full">
-        <Navigation />
+        {/* ── z-10: Nav ──────────────────────────────────────────────────── */}
+        <div className="relative z-10 w-full">
+          <Navigation />
+        </div>
+
+        {/* ── z-10: Hero text content ────────────────────────────────────── */}
+        <div className="relative z-10 w-full flex flex-col items-center px-4 pt-4 sm:pt-6">
+          <HeroContent />
+        </div>
+
+        {/* ── z-[15]: Ground at the horizon ──────────────────────────────── */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[15] pointer-events-none select-none flex justify-center items-end">
+          <img 
+            src="/Ground.svg" 
+            alt="Ground Horizon" 
+            className="block max-w-none"
+            style={{ width: '2000px', minWidth: '2000px' }}
+          />
+        </div>
+
+        {/* ── z-20: Foreground Tree at the bottom center of the 100vh sky ── */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 flex justify-center items-end pointer-events-none select-none">
+          <div id="foreground-tree" className="w-full flex justify-center items-end">
+            <ForegroundTreeSVG />
+          </div>
+        </div>
       </div>
 
-      {/* ── z-10: Hero text content ────────────────────────────────────── */}
-      <div className="relative z-10 w-full flex flex-col items-center px-4 pt-4 sm:pt-6">
-        <HeroContent />
-      </div>
-
-      {/* ── z-20: Foreground — Tree + Underground Room ─────────────────── */}
-      {/* z-20 ensures headline slides behind this layer on scroll         */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col justify-end pointer-events-none select-none">
-        <div id="foreground-tree" className="w-full flex justify-center items-end">
-          <ForegroundTreeSVG />
-        </div>
-        <div className="relative z-10 w-full -mt-3">
-          <UndergroundRoomSVG />
-        </div>
+      {/* ── z-20: Underground Room: naturally follows below the 100vh sky ── */}
+      <div className="relative z-20 w-full pointer-events-none select-none -mt-3">
+        <UndergroundRoomSVG />
       </div>
     </section>
   );

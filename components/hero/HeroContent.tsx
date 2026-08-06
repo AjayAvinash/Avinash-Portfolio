@@ -21,10 +21,10 @@ export const HeroContent: React.FC = () => {
         id="hero-headline"
         className="font-staatliches uppercase will-change-transform flex flex-col items-center justify-center"
         style={{
-          fontSize: 'clamp(3.2rem, 9.5vw, 9.5rem)',
+          fontSize: 'clamp(3.2rem, 4.5vw, 9.5rem)',
           color: '#ffffff',
           letterSpacing: '-0.03em',
-          lineHeight: '0.95',
+          lineHeight: '0.80',
           textShadow: '0 3px 10px rgba(22, 77, 128, 0.5)',
         }}
       >
