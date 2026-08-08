@@ -14,11 +14,11 @@ export const HeroSection: React.FC = () => {
 
     const ctx = gsap.context(() => {
 
-      // ── Hero Content Entrance ────────────────────────────────────────────
+      // ── Hero Content Entrance (on site reload) ──────────────────────────
       gsap.fromTo(
         '.hero-identity-line',
-        { autoAlpha: 0, y: -14 },
-        { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.3 }
+        { autoAlpha: 0, y: -24 },
+        { autoAlpha: 1, y: 0, duration: 1.0, ease: 'power3.out', delay: 0.2 }
       );
 
       gsap.fromTo(
@@ -27,25 +27,39 @@ export const HeroSection: React.FC = () => {
         {
           yPercent: 0,
           autoAlpha: 1,
-          duration: 1.1,
+          duration: 1.2,
           stagger: 0.18,
           ease: 'power4.out',
-          delay: 0.5,
+          delay: 0.45,
         }
       );
 
       // ── Parallax Headline scroll (#hero-headline) ────────────────────────
-      // The Staatliches headline slides down on scroll behind the tree layer.
+      const getHeadlineRestingOffset = () => {
+        const headline = document.querySelector<HTMLElement>('#hero-headline');
+        const floor = document.querySelector<HTMLElement>('#underground-floor');
+
+        if (!headline || !floor) return 0;
+
+        return Math.max(
+          0,
+          floor.getBoundingClientRect().top - headline.getBoundingClientRect().bottom - 12
+        );
+      };
+
+      // Headline travels smoothly on scroll and settles just above the visible floor.
       gsap.to('#hero-headline', {
         scrollTrigger: {
           trigger: '#hero',
           start: 'top top',
-          end: '70% top',
+          end: () => `+=${Math.max(550, getHeadlineRestingOffset())}`,
           scrub: 1.2,
+          pin: true,
+          invalidateOnRefresh: true,
         },
-        y: 620,
-        scale: 0.85,
-        ease: 'none',
+        y: getHeadlineRestingOffset,
+        scale: 1,
+        ease: 'power2.out',
       });
 
       // ── Tree gentle breathing ────────────────────────────────────────────
@@ -86,36 +100,36 @@ export const HeroSection: React.FC = () => {
       <div className="relative w-full h-[100vh] shrink-0">
         <BackgroundLayer />
 
-        {/* ── z-10: Nav ──────────────────────────────────────────────────── */}
-        <div className="relative z-10 w-full">
+        {/* Navigation */}
+        <div className="relative z-40 w-full">
           <Navigation />
         </div>
 
-        {/* ── z-10: Hero text content ────────────────────────────────────── */}
-        <div className="relative z-10 w-full flex flex-col items-center px-4 pt-4 sm:pt-6">
+        {/* Hero text content */}
+        <div className="relative z-20 w-full flex flex-col items-center px-4 pt-4 sm:pt-6">
           <HeroContent />
         </div>
 
-        {/* ── z-[15]: Ground at the horizon ──────────────────────────────── */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[15] pointer-events-none select-none flex justify-center items-end">
-          <img 
-            src="/Ground.svg" 
-            alt="Ground Horizon" 
+        {/* Ground horizon */}
+        <div className="absolute bottom-0 left-1/2 z-30 -translate-x-1/2 pointer-events-none select-none flex justify-center items-end">
+          <img
+            src="/Ground.svg"
+            alt="Ground Horizon"
             className="block max-w-none"
             style={{ width: '2000px', minWidth: '2000px' }}
           />
         </div>
 
-        {/* ── z-20: Foreground Tree at the bottom center of the 100vh sky ── */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 flex justify-center items-end pointer-events-none select-none">
+        {/* Foreground tree */}
+        <div className="absolute bottom-0 left-0 right-0 z-40 flex justify-center items-end pointer-events-none select-none">
           <div id="foreground-tree" className="w-full flex justify-center items-end">
             <ForegroundTreeSVG />
           </div>
         </div>
       </div>
 
-      {/* ── z-20: Underground Room: naturally follows below the 100vh sky ── */}
-      <div className="relative z-20 w-full pointer-events-none select-none -mt-3">
+      {/* ── Underground Room: follows below sky ── */}
+      <div className="relative w-full pointer-events-none select-none -mt-[76px]">
         <UndergroundRoomSVG />
       </div>
     </section>

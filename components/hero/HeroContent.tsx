@@ -8,7 +8,6 @@ export const HeroContent: React.FC = () => {
     <div className="flex flex-col items-center text-center w-full max-w-6xl mx-auto px-4 pt-4 sm:pt-6">
 
       {/* ── Identity Line (Sedgwick Ave font) ────────────────────────── */}
-      {/* "Avinash" in #FFEC81, "here -" in white, followed by RoleSwitcher */}
       <div className="hero-identity-line font-sedgwick text-2xl sm:text-3xl md:text-4xl tracking-wide mb-6 sm:mb-8 flex items-center justify-center gap-2 flex-wrap drop-shadow-md">
         <span style={{ color: '#FFEC81' }}>Avinash</span>
         <span className="text-white">here -</span>
@@ -16,10 +15,9 @@ export const HeroContent: React.FC = () => {
       </div>
 
       {/* ── Parallax Headline (Staatliches Google Font) ────────────────── */}
-      {/* ONLY this element (#hero-headline) animates down on scroll!     */}
       <h1
         id="hero-headline"
-        className="font-staatliches uppercase will-change-transform flex flex-col items-center justify-center"
+        className="relative z-20 font-staatliches uppercase will-change-transform flex flex-col items-center justify-center"
         style={{
           fontSize: 'clamp(3.2rem, 4.5vw, 9.5rem)',
           color: '#ffffff',
