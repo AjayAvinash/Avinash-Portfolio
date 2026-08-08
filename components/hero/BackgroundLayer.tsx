@@ -16,7 +16,7 @@ export const BackgroundLayer: React.FC = () => {
         }}
       >
         {/* ── TOP-LEFT Cloud (User Asset) ─────────────────────────────── */}
-        <div className="cloud-1 absolute top-[4%] left-[0%] w-[25%] max-w-[480px]">
+        <div id="cloud-1" className="absolute top-[4%] left-[0%] w-[25%] max-w-[480px]">
           <img
             src="/clouds/cloud-top-left.svg"
             alt=""
@@ -25,7 +25,7 @@ export const BackgroundLayer: React.FC = () => {
         </div>
 
         {/* ── TOP-RIGHT Cloud (User Asset) ────────────────────────────── */}
-        <div className="cloud-2 absolute top-[6%] right-[0%] w-[25%] max-w-[500px]">
+        <div id="cloud-2" className="absolute top-[6%] right-[0%] w-[25%] max-w-[500px]">
           <img
             src="/clouds/cloud-top-right-user.png"
             alt=""
@@ -34,7 +34,7 @@ export const BackgroundLayer: React.FC = () => {
         </div>
 
         {/* ── SMALL CENTER Cloud (User Asset) ─────────────────────────── */}
-        <div className="cloud-3 absolute top-[22%] right-[15%] -translate-x-1/2 w-[10%] max-w-[150px]">
+        <div id="cloud-3" className="absolute top-[22%] right-[15%] -translate-x-1/2 w-[10%] max-w-[150px]">
           <img
             src="/clouds/cloud-center-sm-user.png"
             alt=""
@@ -43,7 +43,7 @@ export const BackgroundLayer: React.FC = () => {
         </div>
 
         {/* ── BOTTOM-LEFT Cloud (User Asset) ──────────────────────────── */}
-        <div className="cloud-4 absolute top-[40%] left-[0%] w-[25%] max-w-[340px]">
+        <div id="cloud-4" className="absolute top-[40%] left-[0%] w-[25%] max-w-[340px]">
           <img
             src="/clouds/cloud-bottom-left.svg"
             alt=""
@@ -52,7 +52,7 @@ export const BackgroundLayer: React.FC = () => {
         </div>
 
         {/* ── BOTTOM-RIGHT Cloud (User Asset - Mirrored) ──────────────── */}
-        <div className="cloud-5 absolute top-[40%] right-[0%] w-[25 %] max-w-[340px]">
+        <div id="cloud-5" className="absolute top-[40%] right-[0%] w-[25 %] max-w-[340px]">
           <img
             src="/clouds/cloud-bottom-right.svg"
             alt=""

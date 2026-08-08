@@ -34,6 +34,30 @@ export const HeroSection: React.FC = () => {
         }
       );
 
+      // Clouds make a subtle entrance, then remain settled in the sky.
+      [
+        { id: '#cloud-1', x: -32, y: -12, rotation: -1.5, delay: 0.05 },
+        { id: '#cloud-2', x: 36, y: -14, rotation: 1.75, delay: 0.12 },
+        { id: '#cloud-3', x: 20, y: -8, rotation: 1, delay: 0.2 },
+        { id: '#cloud-4', x: -42, y: 6, rotation: -2, delay: 0.26 },
+        { id: '#cloud-5', x: 46, y: 6, rotation: 2.25, delay: 0.32 },
+      ].forEach(({ id, x, y, rotation, delay }) => {
+        gsap.fromTo(
+          id,
+          { autoAlpha: 0, x, y, rotation },
+          {
+            autoAlpha: 1,
+            x: 0,
+            y: 0,
+            rotation: 0,
+            duration: 1.25,
+            delay,
+            ease: 'power3.out',
+            transformOrigin: 'center center',
+          }
+        );
+      });
+
       // ── Parallax Headline scroll (#hero-headline) ────────────────────────
       const getHeadlineRestingOffset = () => {
         const headline = document.querySelector<HTMLElement>('#hero-headline');
@@ -73,15 +97,26 @@ export const HeroSection: React.FC = () => {
       });
 
       // ── Cityscape subtle scroll parallax ────────────────────────────────
-      ['#cityscape-left', '#cityscape-right'].forEach((id) => {
+      [
+        { id: '#cloud-1', x: -72, y: -32, rotation: -2, end: '+=900', scrub: 1.2 },
+        { id: '#cloud-2', x: 82, y: -38, rotation: 2.25, end: '+=900', scrub: 1.3 },
+        { id: '#cloud-3', x: 48, y: -22, rotation: 1.25, end: '+=900', scrub: 1.1 },
+        { id: '#cloud-4', x: -96, y: -48, rotation: -2.75, end: '+=900', scrub: 1.3 },
+        { id: '#cloud-5', x: 108, y: -56, rotation: 3, end: '+=900', scrub: 1.4 },
+        { id: '#cityscape-left', x: 14, y: -132, rotation: 0, end: '70% top', scrub: 1.1 },
+        { id: '#cityscape-right', x: -18, y: -164, rotation: 0, end: '75% top', scrub: 1.3 },
+      ].forEach(({ id, x, y, rotation, end, scrub }) => {
         gsap.to(id, {
           scrollTrigger: {
             trigger: '#hero',
             start: 'top top',
-            end: '55% top',
-            scrub: 2,
+            end,
+            scrub,
           },
-          y: -50,
+          x,
+          y,
+          rotation,
+          transformOrigin: 'center center',
           ease: 'none',
         });
       });
