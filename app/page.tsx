@@ -1,4 +1,5 @@
 import { HeroSection } from '@/sections/hero/HeroSection';
+import { WorksSection } from '@/sections/works/WorksSection';
 import { ThinkingSection } from '@/sections/thinking/ThinkingSection';
 import { ProjectsSection } from '@/sections/projects/ProjectsSection';
 import { NotebookSection } from '@/sections/notebook/NotebookSection';
@@ -12,6 +13,7 @@ export default function Home() {
       {/* Navigation is embedded in HeroSection */}
       <main className="flex-1">
         <HeroSection />
+        <WorksSection />
         <ThinkingSection />
         <ProjectsSection />
         <NotebookSection />

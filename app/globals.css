@@ -52,3 +52,32 @@
     z-index: 25;
   }
 }
+
+@layer components {
+  /* Shared typography for content sections. Hero typography remains intentionally independent. */
+  .section-heading {
+    font-family: var(--font-sedgwick);
+    font-weight: var(--font-weight-normal);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  .section-card-heading {
+    font-family: var(--font-staatliches);
+    font-weight: var(--font-weight-normal);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+
+  .section-body {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+  }
+
+  .section-meta {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-normal);
+  }
+}

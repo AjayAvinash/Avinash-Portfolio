@@ -23,7 +23,7 @@ export const Heading: React.FC<HeadingProps> = ({
   };
 
   return (
-    <Component className={cn('tracking-tight text-text-primary', sizeClasses[size], className)} {...props}>
+    <Component className={cn('section-heading text-text-primary', sizeClasses[size], className)} {...props}>
       {children}
     </Component>
   );
