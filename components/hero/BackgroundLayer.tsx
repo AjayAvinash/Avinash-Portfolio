@@ -9,14 +9,13 @@ export const BackgroundLayer: React.FC = () => {
        * and does NOT bleed into the underground section below.
        */}
       <div
-        className="absolute top-0 left-0 right-0 z-0 overflow-hidden pointer-events-none select-none"
+        className="absolute top-0 left-0 right-0 z-0 h-full overflow-hidden pointer-events-none select-none"
         style={{
-          height: '100vh',
           background: 'linear-gradient(to bottom, #0974FD 0%, #80D1FC 60%, #E4F8F5 100%)',
         }}
       >
         {/* ── TOP-LEFT Cloud (User Asset) ─────────────────────────────── */}
-        <div id="cloud-1" className="absolute top-[4%] left-[0%] w-[25%] max-w-[480px]">
+        <div id="cloud-1" className="absolute top-[4%] left-[0%] w-[25%] max-w-[480px] will-change-transform">
           <img
             src="/clouds/cloud-top-left.svg"
             alt=""
@@ -25,7 +24,7 @@ export const BackgroundLayer: React.FC = () => {
         </div>
 
         {/* ── TOP-RIGHT Cloud (User Asset) ────────────────────────────── */}
-        <div id="cloud-2" className="absolute top-[6%] right-[0%] w-[25%] max-w-[500px]">
+        <div id="cloud-2" className="absolute top-[6%] right-[0%] w-[25%] max-w-[500px] will-change-transform">
           <img
             src="/clouds/cloud-top-right-user.png"
             alt=""
@@ -34,7 +33,7 @@ export const BackgroundLayer: React.FC = () => {
         </div>
 
         {/* ── SMALL CENTER Cloud (User Asset) ─────────────────────────── */}
-        <div id="cloud-3" className="absolute top-[22%] right-[15%] -translate-x-1/2 w-[10%] max-w-[150px]">
+        <div id="cloud-3" className="absolute top-[22%] right-[15%] -translate-x-1/2 w-[10%] max-w-[150px] will-change-transform">
           <img
             src="/clouds/cloud-center-sm-user.png"
             alt=""
@@ -43,7 +42,7 @@ export const BackgroundLayer: React.FC = () => {
         </div>
 
         {/* ── BOTTOM-LEFT Cloud (User Asset) ──────────────────────────── */}
-        <div id="cloud-4" className="absolute top-[40%] left-[0%] w-[25%] max-w-[340px]">
+        <div id="cloud-4" className="absolute top-[40%] left-[0%] w-[25%] max-w-[340px] will-change-transform">
           <img
             src="/clouds/cloud-bottom-left.svg"
             alt=""
@@ -52,7 +51,7 @@ export const BackgroundLayer: React.FC = () => {
         </div>
 
         {/* ── BOTTOM-RIGHT Cloud (User Asset - Mirrored) ──────────────── */}
-        <div id="cloud-5" className="absolute top-[40%] right-[0%] w-[25 %] max-w-[340px]">
+        <div id="cloud-5" className="absolute top-[40%] right-[0%] w-[25 %] max-w-[340px] will-change-transform">
           <img
             src="/clouds/cloud-bottom-right.svg"
             alt=""
@@ -63,7 +62,7 @@ export const BackgroundLayer: React.FC = () => {
         {/* ── Left Cityscape ────────────────────────────────────────────── */}
         <div
           id="cityscape-left"
-          className="absolute bottom-0 left-0 w-[26%] sm:w-[22%] md:w-[18%]"
+          className="absolute bottom-0 left-0 w-[26%] will-change-transform sm:w-[22%] md:w-[18%]"
         >
           <svg viewBox="0 0 340 260" fill="none" className="w-full" preserveAspectRatio="xMinYMax meet">
             <rect x="10" y="100" width="50" height="160" rx="4" fill="#1e52a0" opacity="0.4" />
@@ -92,7 +91,7 @@ export const BackgroundLayer: React.FC = () => {
         {/* ── Right Cityscape ───────────────────────────────────────────── */}
         <div
           id="cityscape-right"
-          className="absolute bottom-0 right-0 w-[26%] sm:w-[22%] md:w-[18%]"
+          className="absolute bottom-0 right-0 w-[26%] will-change-transform sm:w-[22%] md:w-[18%]"
         >
           <svg viewBox="0 0 340 260" fill="none" className="w-full" preserveAspectRatio="xMaxYMax meet">
             <rect x="140" y="80" width="55" height="180" rx="5" fill="#1e52a0" opacity="0.35" />

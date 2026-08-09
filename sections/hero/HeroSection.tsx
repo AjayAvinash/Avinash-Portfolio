@@ -6,11 +6,13 @@ import { Navigation } from '@/components/hero/Navigation';
 import { HeroContent } from '@/components/hero/HeroContent';
 import { ForegroundTreeSVG } from '@/components/hero/ForegroundTreeSVG';
 import { UndergroundRoomSVG } from '@/components/hero/UndergroundRoomSVG';
-import { initGsap, gsap } from '@/animations/gsap';
+import { initGsap, gsap, ScrollTrigger } from '@/animations/gsap';
 
 export const HeroSection: React.FC = () => {
   useEffect(() => {
     initGsap();
+    ScrollTrigger.config({ ignoreMobileResize: true });
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
 
     const ctx = gsap.context(() => {
 
@@ -77,27 +79,32 @@ export const HeroSection: React.FC = () => {
           trigger: '#hero',
           start: 'top top',
           end: () => `+=${Math.max(550, getHeadlineRestingOffset())}`,
-          scrub: 1.2,
+          scrub: 0.55,
           pin: true,
+          anticipatePin: 1,
           invalidateOnRefresh: true,
         },
         y: getHeadlineRestingOffset,
         scale: 1,
-        ease: 'power2.out',
+        force3D: true,
+        ease: 'none',
       });
 
       // ── Tree gentle breathing ────────────────────────────────────────────
-      gsap.to('#foreground-tree', {
-        scaleY: 1.013,
-        duration: 5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        transformOrigin: 'bottom center',
-      });
+      if (!isMobile) {
+        gsap.to('#foreground-tree', {
+          scaleY: 1.013,
+          duration: 5,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          transformOrigin: 'bottom center',
+          force3D: true,
+        });
+      }
 
       // ── Cityscape subtle scroll parallax ────────────────────────────────
-      [
+      const parallaxLayers = [
         { id: '#cloud-1', x: -72, y: -32, rotation: -2, end: '+=900', scrub: 1.2 },
         { id: '#cloud-2', x: 82, y: -38, rotation: 2.25, end: '+=900', scrub: 1.3 },
         { id: '#cloud-3', x: 48, y: -22, rotation: 1.25, end: '+=900', scrub: 1.1 },
@@ -105,7 +112,11 @@ export const HeroSection: React.FC = () => {
         { id: '#cloud-5', x: 108, y: -56, rotation: 3, end: '+=900', scrub: 1.4 },
         { id: '#cityscape-left', x: 14, y: -132, rotation: 0, end: '70% top', scrub: 1.1 },
         { id: '#cityscape-right', x: -18, y: -164, rotation: 0, end: '75% top', scrub: 1.3 },
-      ].forEach(({ id, x, y, rotation, end, scrub }) => {
+      ];
+
+      // Mobile keeps the hero headline motion but avoids seven simultaneous
+      // scroll-bound background transforms, which is costly during touch scroll.
+      (isMobile ? [] : parallaxLayers).forEach(({ id, x, y, rotation, end, scrub }) => {
         gsap.to(id, {
           scrollTrigger: {
             trigger: '#hero',
@@ -117,6 +128,7 @@ export const HeroSection: React.FC = () => {
           y,
           rotation,
           transformOrigin: 'center center',
+          force3D: true,
           ease: 'none',
         });
       });
@@ -132,7 +144,7 @@ export const HeroSection: React.FC = () => {
       className="relative w-full overflow-hidden flex flex-col"
     >
       {/* ── Sky Container: Fixed 100vh ─────────────────────────────────── */}
-      <div className="relative w-full h-[100vh] shrink-0">
+      <div className="relative h-[100dvh] min-h-[100svh] w-full shrink-0">
         <BackgroundLayer />
 
         {/* Navigation */}

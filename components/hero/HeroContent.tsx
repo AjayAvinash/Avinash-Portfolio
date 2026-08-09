@@ -17,7 +17,7 @@ export const HeroContent: React.FC = () => {
       {/* ── Parallax Headline (Staatliches Google Font) ────────────────── */}
       <h1
         id="hero-headline"
-        className="relative z-20 font-staatliches uppercase will-change-transform flex flex-col items-center justify-center"
+        className="relative z-20 flex flex-col items-center justify-center font-staatliches uppercase will-change-transform"
         style={{
           fontSize: 'clamp(3.2rem, 4.5vw, 9.5rem)',
           color: '#ffffff',
