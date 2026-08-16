@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export interface WorkItem {
   id: string;
@@ -15,6 +16,15 @@ const accents = {
   orange: 'bg-[#ff9d3e]',
   pink: 'bg-[#ff83ba]',
   yellow: 'bg-[#f1d848]',
+};
+
+const hoverShadows = {
+  blue: 'hover:shadow-[0_20px_60px_rgba(43,165,245,0.35)]',
+  green: 'hover:shadow-[0_20px_60px_rgba(55,220,125,0.35)]',
+  lilac: 'hover:shadow-[0_20px_60px_rgba(175,157,255,0.35)]',
+  orange: 'hover:shadow-[0_20px_60px_rgba(255,157,62,0.35)]',
+  pink: 'hover:shadow-[0_20px_60px_rgba(255,131,186,0.35)]',
+  yellow: 'hover:shadow-[0_20px_60px_rgba(241,216,72,0.35)]',
 };
 
 /** Temporary product-preview artwork, designed to be replaced by case-study imagery. */
@@ -57,19 +67,31 @@ const ProductPreview: React.FC = () => (
 );
 
 export const WorkCard: React.FC<{ work: WorkItem }> = ({ work }) => (
-  <article
-    className={`work-card group relative isolate min-h-[24rem] overflow-hidden p-6 text-black sm:min-h-[29rem] sm:p-8 lg:min-h-[34rem] ${accents[work.accent]}`}
-  >
-    <div className="relative z-10">
-      <h3 className="section-card-heading max-w-[18ch] text-2xl sm:text-3xl lg:text-[2.2rem]">
-        {work.title}
-      </h3>
-      <div className="section-meta mt-4 flex items-center justify-between gap-4 text-xs sm:mt-5 sm:text-sm">
-        <p>{work.name}</p>
-        <p>{work.domain}</p>
+  <Link href={`/projects/${work.id}`} className="block">
+    <article
+      className={`
+        work-card group relative isolate min-h-[24rem] overflow-hidden p-6 text-black
+        sm:min-h-[29rem] sm:p-8 lg:min-h-[34rem]
+        ${accents[work.accent]} ${hoverShadows[work.accent]}
+        transition-all duration-300 ease-out
+        hover:-translate-y-2 hover:scale-[1.015]
+        cursor-pointer
+      `}
+    >
+      <div className="relative z-10">
+        <h3 className="section-card-heading max-w-[18ch] text-2xl sm:text-3xl lg:text-[2.2rem]">
+          {work.title}
+        </h3>
+        <div className="section-meta mt-4 flex items-center justify-between gap-4 text-xs sm:mt-5 sm:text-sm">
+          <p>{work.name}</p>
+          <p>{work.domain}</p>
+        </div>
       </div>
-    </div>
-    <ProductPreview />
-    <div className="pointer-events-none absolute inset-0 border border-white/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-  </article>
+      <ProductPreview />
+      {/* Shine overlay on hover */}
+      <div className="pointer-events-none absolute inset-0 bg-white/0 transition-all duration-300 group-hover:bg-white/[0.06]" />
+      {/* Border highlight */}
+      <div className="pointer-events-none absolute inset-0 border border-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+    </article>
+  </Link>
 );

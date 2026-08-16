@@ -22,11 +22,21 @@ export interface Project {
   slug: string;
   title: string;
   subtitle: string;
+  /** Three image URLs used in the comic strip hero (panels 1–3) */
+  comicImages: [string, string, string];
   comic?: ProjectComic;
+  /** e.g. "Logistics, Port" */
+  vertical: string;
+  /** e.g. "1 week" */
+  duration: string;
+  /** Short paragraph describing the project scope */
+  scope: string;
   approach: ProjectSectionDetail;
   discovery: ProjectSectionDetail;
-  solution: ProjectSectionDetail;
-  reflection: ProjectSectionDetail;
+  /** Previously `solution` */
+  whatIDid: ProjectSectionDetail;
+  /** Previously `reflection` */
+  whereItStands: ProjectSectionDetail;
   images: string[];
   tags: string[];
   featured?: boolean;

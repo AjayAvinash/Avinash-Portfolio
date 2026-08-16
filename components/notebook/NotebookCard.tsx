@@ -1,8 +1,5 @@
 import React from 'react';
 import { NotebookItem } from '@/types/notebook';
-import { Card } from '@/components/ui/Card';
-import { Heading } from '@/components/ui/Heading';
-import { Pill } from '@/components/ui/Pill';
 
 interface NotebookCardProps {
   item: NotebookItem;
@@ -10,22 +7,34 @@ interface NotebookCardProps {
 
 export const NotebookCard: React.FC<NotebookCardProps> = ({ item }) => {
   return (
-    <Card hoverable className="group flex flex-col justify-between">
+    <article className="group flex flex-col justify-between bg-[#f7f6f2] border border-[#e5e0d8] rounded-xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
       <div>
-        <div className="flex items-center justify-between text-xs text-text-muted mb-2">
-          <Pill variant="primary">{item.category}</Pill>
-          <span>{item.readTime}</span>
+        {/* Category + read time */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="inline-block text-[10px] font-semibold uppercase tracking-widest text-[#111111] bg-[#e5e0d8] px-2.5 py-1 rounded-full">
+            {item.category}
+          </span>
+          <span className="text-xs text-[#999080]">{item.readTime}</span>
         </div>
-        <Heading as="h3" size="sm" className="group-hover:text-primary transition-colors">
+
+        {/* Title */}
+        <h3 className="font-staatliches text-2xl sm:text-3xl text-[#111111] leading-tight mb-2 group-hover:text-[#555555] transition-colors">
           {item.title}
-        </Heading>
-        <p className="mt-2 text-xs text-text-secondary line-clamp-3">{item.excerpt}</p>
+        </h3>
+
+        {/* Excerpt */}
+        <p className="text-sm text-[#666058] leading-relaxed line-clamp-3">{item.excerpt}</p>
       </div>
 
-      <div className="mt-4 pt-3 border-t border-border/50 text-[11px] text-text-muted flex justify-between items-center">
-        <span>{item.date}</span>
-        <span className="group-hover:underline">Read Thought →</span>
+      {/* Footer */}
+      <div className="mt-5 pt-4 border-t border-[#e5e0d8] flex items-center justify-between">
+        <span className="text-xs text-[#999080]">
+          {new Date(item.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+        </span>
+        <span className="text-xs font-medium text-[#111111] group-hover:underline underline-offset-2">
+          Read →
+        </span>
       </div>
-    </Card>
+    </article>
   );
 };
